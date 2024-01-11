@@ -15,23 +15,27 @@ body
 </style>
 
 <body>
-    <div class="body">
-        <div class="form_table">
-            <div></div>
-            <img src='{% static "images/icon.png" %}'class="icon"/>
-            <div class="title">
-                <h3> Registration Form </h3>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="body">
+            <div class="form_table">
+                <div class="title">
+                    <h3> Sign Up  </h3>
+                </div>
+                <div class="user"> <input type="text" name="user" placeholder="User Name" /> </div>
+                <div class="email"> <input type="email" name="email" placeholder="Email" /> </div>
+                <div class="password"> <input type="password" name="pass" placeholder="Password" /></div>
+                <div class="conpassword"> <input type="password" name="repass" placeholder="Confirm Password" /></div>
+                <!-- <div class="dis"><textarea placeholder="Description" rows="3"></textarea></div> -->
+                <div class="term"><input type="checkbox" />Agree with <a href="https://policies.google.com/terms?hl=en-GB">
+                        Terms & Conditions </a> </div>
+                <div id="massage"> {{ Invalid }} </div>
+                <div id="Valid">{{ Valid}}</div>
+
+                <button id="button" type="submit"> Register Now </button>
             </div>
-            <div class="user"> <input type="text" placeholder="User Name" /> </div>
-            <div class="email"> <input type="email" placeholder="Email" /> </div>
-            <div class="password"> <input type="password" placeholder="Password" /></div>
-            <div class="conpassword"> <input type="password" placeholder="Confirm Password" /></div>
-            <div class="dis"><textarea placeholder="Description" rows="3"></textarea></div>
-            <div class="term"><input type="checkbox" />Agree with <a href="https://policies.google.com/terms?hl=en-GB">
-                    Terms & Conditions </a> </div>
-            <button id="button" type="submit"> Register Now </button>
         </div>
-    </div>
+    </form>
 </body>
 
 </html>
